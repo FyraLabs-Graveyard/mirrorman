@@ -1,0 +1,3 @@
+[mirrorman]
+# The path to the mirror
+sync_dir = rsync/

@@ -1,0 +1,11 @@
+[build-system]
+requires = [
+    "setuptools",
+    "wheel",
+]
+[dependencies]
+requires = [
+    "sysrconfig",
+]
+[scripts]
+mirrorman = "mirrorman.__main__:main"
