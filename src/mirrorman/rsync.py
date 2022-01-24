@@ -21,7 +21,7 @@ class rsyncThread(threading.Thread):
         pidfile.close()
         try:
             self.rsync.run(
-                source="rsync://andes/pub",
+                source="rsync://lapis.ultramarine-linux.org/pub",
                 destination=self.config.get("sync_dir") + "pub",
                 # follow symlinks
                 verbose=True,
@@ -40,14 +40,14 @@ class syncWatcherThread(threading.Thread):
     def __init__(self):
         threading.Thread.__init__(self)
         self.name = "syncWatcherThread"
-        self.timer = 5  # change to 1800 for 30 minutes
+        self.timer = 1800  # change to 1800 for 30 minutes
 
     def run(self):
         # every 30 minutes check the timestamp of the last sync
         # if it's older than 30 minutes, run rsync
         print("Starting " + self.name)
         while True:
-            if self.timer == 5:
+            if self.timer == 1800:
                 self.sync()
                 self.timer = 0
             else:
