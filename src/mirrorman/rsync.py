@@ -21,7 +21,7 @@ class rsyncThread(threading.Thread):
         pidfile.close()
         try:
             self.rsync.run(
-                source="rsync://lapis.ultramarine-linux.org/pub",
+                source="rsync://lapis.ultramarine-linux.org:20251/pub",
                 destination=self.config.get("sync_dir") + "pub",
                 # follow symlinks
                 verbose=True,
